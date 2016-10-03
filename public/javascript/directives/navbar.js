@@ -29,7 +29,7 @@
             vm.loggedIn = true;
             vm.username = user.username;
             vm.user_id = user.id;
-            $http.get(`/api/user/${user.id}`)
+            $http.get(`/api/users/${user.id}`)
               .then( results => {
                 vm.userInfo = results.data;
               });

@@ -6,66 +6,6 @@ var express = require('express'),
   Session = require('../models/session'),
   Application = require('../models/application');
 
-router.route('/users')
-  .get((req, res) => {
-    User.fetchAll().then(users => {
-      res.send(users.toJSON());
-    });
-  })
-  .post((req, res) => {
-    var newUser = req.body,
-        hash    = bcrypt.hashSync( newUser.password, 8);
-
-    User.forge({
-      username:newUser.username,
-      email:newUser.email,
-      avatar_url:newUser.avatar_url,
-      full_name:newUser.full_name,
-      password: hash,
-      location:newUser.location
-    }).save().then(() => {
-      res.redirect('/');
-    });
-  });
-
-router.route('/user/:user_id')
-  .get((req, res) => {
-    User
-      .where('id', req.params.user_id)
-      .fetch()
-      .then( user => {
-        res.json(user.toJSON());
-      });
-  });
-
-router.route('/user/:user_id/sessions')
-  .get((req, res) => {
-    User
-      .getSessions(req.params.user_id)
-      .then( results => {
-        var user = results.toJSON();
-
-        res.json(user);
-      })
-  })
-
-router.route('/user/:user_id/sessions/host')
-  .get((req, res) => {
-    var user = req.user ? req.user.id : req.body.user_id;
-
-    if (user) {
-      Session
-        .where('host_id', user)
-        .fetchAll({withRelated:['users','applications.users']})
-        .then( results => {
-          var sessions = results.toJSON();
-
-          res.json(sessions);
-        })
-    } else {
-      res.json({error:'Not Logged In'})
-    }
-  })
 
 router.route('/sessions')
   .get((req, res) => {
@@ -198,7 +138,7 @@ router.route('/application/:application_id/deny')
       })
   })
 
-router.route('/user/:user_id/applications')
+router.route('/users/:user_id/applications')
   .get((req, res) => {
     User
       .where('id', req.params.user_id)

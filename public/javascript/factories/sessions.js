@@ -20,7 +20,7 @@
     }
 
     function getUserSession(user_id){
-      return $http.get(`/api/user/${user_id}/sessions`)
+      return $http.get(`/api/users/${user_id}/sessions`)
     }
 
     return sessionObj;

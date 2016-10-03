@@ -15,7 +15,7 @@
     }
 
     function getUsers(user_id){
-      return $http.get(`/api/user/${user_id}`);
+      return $http.get(`/api/users/${user_id}`);
     }
 
     return returnObj;

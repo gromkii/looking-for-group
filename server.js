@@ -9,6 +9,7 @@ var express        = require('express'),
     bcrypt         = require('bcrypt'),
     api            = require('./routes/api.js'),
     auth           = require('./routes/auth.js'),
+    usersRoute     = require('./routes/users.js'),
     User           = require('./models/user.js');
 
 require('dotenv');
@@ -21,7 +22,7 @@ app.use(bodyParser.json())
   .use('/bower_components', express.static(__dirname + '/bower_components'))
   .use(cookieParser())
   .use(session({
-    secret:'test'
+    secret:'225f9194bbb37d043e8d3923dd5e8c27'
   }))
 
 
@@ -71,6 +72,7 @@ function auth(req, res, next){
 
 // --- Routing --- //
 app.use('/api', api)
+  .use('/api/users', usersRoute)
   .use('/auth', auth);
 
 app.get('/dashboard', auth, (req, res, next) => {

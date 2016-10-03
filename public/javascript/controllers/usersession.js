@@ -34,13 +34,13 @@
       .then( results => {
         var u = results.data;
         if (u.id) {
-          $http.get(`/api/user/${u.id}/sessions`)
+          $http.get(`/api/users/${u.id}/sessions`)
             .then( results => {
 
               vm.mySessions = results.data.sessions
             })
             .then(() => {
-              $http.get(`/api/user/${u.id}/sessions/host`)
+              $http.get(`/api/users/${u.id}/sessions/host`)
                 .then( results => {
                    vm.hostedSessions = results.data
                 })
