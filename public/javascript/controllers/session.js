@@ -9,7 +9,7 @@
 
   function routeConfig($routeProvider, $locationProvider){
     $routeProvider
-      .when('/dashboard/session/:session_id', {
+      .when('/dashboard/sessions/:session_id', {
         templateUrl:'/views/dashboard/sessions/show.html',
         controller:'SessionController',
         controllerAs:'session'

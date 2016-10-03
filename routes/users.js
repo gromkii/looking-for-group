@@ -1,7 +1,9 @@
 'use strict'
 
 var express = require('express'),
-    router  = express.Router();
+    router  = express.Router(),
+    User = require('../models/user'),
+    Session = require('../models/session');
 
 router.route('/')
   // Return a list of all users.
@@ -50,7 +52,7 @@ router.route('/:user_id/sessions')
       })
   })
 
-router.route('/users/:user_id/sessions/host')
+router.route('/:user_id/sessions/host')
   .get((req, res) => {
     var user = req.user ? req.user.id : req.body.user_id;
 

@@ -51,7 +51,7 @@
     function deleteSession(session_id, index){
       vm.hostedSessions.splice(index,1);
 
-      $http.delete(`/api/session/${session_id}`)
+      $http.delete(`/api/sessions/${session_id}`)
         .then( results => {
 
         });

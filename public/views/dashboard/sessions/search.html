@@ -51,7 +51,7 @@
           <td>{{seats = session.num_players - session.users.length > 0 ? session.num_players - session.users.legnth : "Full" }}</td>
           <td><img ng-src="/assets/skill/{{session.skill_level}}.png"></td>
           <td>{{session.start_date | date:'EEEE'}}
-          <td><a ng-href="/dashboard/session/{{session.id}}" class="btn btn-primary purpback">More Info</a></td>
+          <td><a ng-href="/dashboard/sessions/{{session.id}}" class="btn btn-primary purpback">More Info</a></td>
         </tr>
       </tbody>
     </table>

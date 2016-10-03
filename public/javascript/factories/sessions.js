@@ -12,7 +12,7 @@
     }
 
     function getSession(sessionId){
-      return $http.get(`/api/session/${sessionId}`);
+      return $http.get(`/api/sessions/${sessionId}`);
     }
 
     function newSession(){
