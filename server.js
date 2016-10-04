@@ -26,9 +26,8 @@ app.use(bodyParser.json())
   .use(cookieParser())
   .use(session({
     secret: process.env.KEY,
-    resave:false,
-    saveUninitialized: true,
-    cookie: { secure: true }
+    resave:true,
+    saveUninitialized: true
   }))
 
 
@@ -72,9 +71,9 @@ passport.deserializeUser((id, done) => {
 
 // --- Routing --- //
 app.use('/api', api)
-  .use('/api/users', usersRoute)
   .use('/api/sessions', sessionRoute)
-  .use('/auth', authRoute);
+  .use('/api/users', usersRoute)
+  .use('/auth', authRoute)
 
 app.get('/dashboard', (req, res, next) => {
 

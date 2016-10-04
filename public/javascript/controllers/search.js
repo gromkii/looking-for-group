@@ -9,7 +9,7 @@
 
   function routeConfig($routeProvider, $locationProvider){
     $routeProvider
-      .when('/dashboard/sessions/search',{
+      .when('/dashboard/search', {
         templateUrl:'/views/dashboard/sessions/search.html',
         controller:'SearchSessionsController',
         controllerAs:'search'
@@ -26,8 +26,8 @@
 
     $http.get('/api/sessions')
       .then( results => {
+        console.log(results.data);
         vm.sessions = results.data;
-        console.log(vm.sessions);
       })
   }
 })();
