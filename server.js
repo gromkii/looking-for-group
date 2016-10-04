@@ -1,4 +1,6 @@
-var express        = require('express'),
+'use strict'
+
+const express      = require('express'),
     app            = express(),
     bodyParser     = require('body-parser'),
     methodOverride = require('method-override'),
@@ -8,12 +10,12 @@ var express        = require('express'),
   	LocalStrategy  = require('passport-local').Strategy,
     bcrypt         = require('bcrypt'),
     api            = require('./routes/api.js'),
-    auth           = require('./routes/auth.js'),
+    authRoute      = require('./routes/auth.js'),
     usersRoute     = require('./routes/users.js'),
-    sessionRoute  = require('./routes/sessions.js'),
+    sessionRoute   = require('./routes/sessions.js'),
     User           = require('./models/user.js');
 
-require('dotenv');
+require('dotenv').config(); // Allows local env elements.
 
 // --- Middleware --- //
 app.use(bodyParser.json())
@@ -23,7 +25,10 @@ app.use(bodyParser.json())
   .use('/bower_components', express.static(__dirname + '/bower_components'))
   .use(cookieParser())
   .use(session({
-    secret:'225f9194bbb37d043e8d3923dd5e8c27'
+    secret: process.env.KEY,
+    resave:false,
+    saveUninitialized: true,
+    cookie: { secure: true }
   }))
 
 
@@ -75,7 +80,7 @@ function auth(req, res, next){
 app.use('/api', api)
   .use('/api/users', usersRoute)
   .use('/api/sessions', sessionRoute)
-  .use('/auth', auth);
+  .use('/auth', authRoute);
 
 app.get('/dashboard', auth, (req, res, next) => {
 
