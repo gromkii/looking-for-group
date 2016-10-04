@@ -1,12 +1,11 @@
+'use strict'
+
 var expect  = require('chai').expect,
     app     = require('../server'),
     request = require('supertest')(app),
-    knex    = require('../db/knex'),
-    should  = require('should');
+    knex    = require('../db/knex');
 
-require('locus');
 
-// Start writing tests.
 describe('User API Calls', ()=>{
   before(done => {
     knex.migrate.latest().then(()=>{
@@ -55,13 +54,14 @@ describe('User API Calls', ()=>{
           .end((err, res) => {
             let users = res.body;
             expect(users.length).to.eq(5);
+            expect(users[4]["username"]).to.eq('placehold');
             done();
           })
       })
   });
 
   it('Should login as a user.', done => {
-    var loginInfo = {
+    let loginInfo = {
       usernameField:'fmurray',
       passwordField:'test'
     }

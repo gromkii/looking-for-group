@@ -1,8 +1,9 @@
+'use strict'
+
 var expect  = require('chai').expect,
     app     = require('../server'),
     request = require('supertest')(app),
-    knex    = require('../db/knex'),
-    should  = require('should');
+    knex    = require('../db/knex');
 
 describe('Session API Calls', () => {
   before(done => {
@@ -31,7 +32,7 @@ describe('Session API Calls', () => {
   });
 
   it('Should create a new session.', done => {
-    var n = {
+    let n = {
       session_name:'Test',
       game_name:'Another Test',
       session_desc:'Testing posting an new session.',
@@ -51,10 +52,7 @@ describe('Session API Calls', () => {
           .get('/api/sessions')
           .expect(200)
           .end((err, res) => {
-
-            var s = res.body;
-
-            console.log(s[3]);
+            let s = res.body;
 
             expect(s.length).to.eq(4);
             expect(s[3].session_name).to.eq('Test')

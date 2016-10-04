@@ -1,8 +1,9 @@
+'use strict'
+
 var expect  = require('chai').expect,
     app     = require('../server'),
     request = require('supertest')(app),
-    knex    = require('../db/knex'),
-    should  = require('should');
+    knex    = require('../db/knex');
 
 describe('Application Route Tests', () => {
   before(done => {
@@ -19,6 +20,8 @@ describe('Application Route Tests', () => {
     })
   })
 
+  // TODO: actually write test for applications.
+  
   it('Should return list of applications.', done => {
     done();
   })
