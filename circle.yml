@@ -3,3 +3,7 @@ machine:
     America/Los_Angeles
   node:
     version: 6.3.1
+
+database:
+  override:
+    - postgresql -u ubuntu lfg_test
