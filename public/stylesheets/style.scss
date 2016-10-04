@@ -20,6 +20,7 @@ body{
 
 .purpback {
   background-color: $purp;
+  border:0px;
 }
 
 .white {
@@ -41,7 +42,6 @@ body{
   }
   .play {
     font-family: $play;
-    font-size:1.4em;
     font-weight: 100;
   }
 }

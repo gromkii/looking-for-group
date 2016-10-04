@@ -9,7 +9,8 @@ body {
       font-weight: bold; }
 
 .purpback {
-  background-color: #AD5BF5; }
+  background-color: #AD5BF5;
+  border: 0px; }
 
 .white {
   color: #f9f9f9;
@@ -28,7 +29,6 @@ body {
     color: #AD5BF5; }
   .jumbotron .play {
     font-family: "Playfair Display", serif;
-    font-size: 1.4em;
     font-weight: 100; }
 
 .headline {

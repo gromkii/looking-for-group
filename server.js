@@ -70,19 +70,13 @@ passport.deserializeUser((id, done) => {
     })
 })
 
-// --- Auth --- //
-
-function auth(req, res, next){
-  !req.isAuthenticated() ? res.send(401) : next()
-}
-
 // --- Routing --- //
 app.use('/api', api)
   .use('/api/users', usersRoute)
   .use('/api/sessions', sessionRoute)
   .use('/auth', authRoute);
 
-app.get('/dashboard', auth, (req, res, next) => {
+app.get('/dashboard', (req, res, next) => {
 
   if (!req.isAuthenticated()) {
     res.redirect('/');
