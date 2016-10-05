@@ -85,6 +85,27 @@ router.route('/:user_id/applications')
       })
   })
 
+router.route('/:user_id/messages')
+  .get((req, res) => {
+    User
+      .where('id', req.params.user_id)
+      .fetch({withRelated:['sentMessages', 'receivedMessages']})
+      .then( results => {
+        let user = results ? results.toJSON() : null
+
+        if (user.sentMessages) {
+          res.json({
+            sent:user.sentMessages,
+            received:user.receivedMessages
+          })
+        } else {
+          res.json({
+            error:'No results found.'
+          })
+        }
+      })
+  })
+
 router.route('/:user_id/messages/sent')
   .get((req, res) =>{
     Message

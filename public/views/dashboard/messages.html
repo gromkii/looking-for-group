@@ -1,13 +1,25 @@
 <section class="row">
   <div class="col-md-8 col-md-offset-2">
+    <div ng-show="messages.msg.received.length">
+      <h1 class="white">Received Messages</h1>
 
-    <h1 class="white">{{messages.test}}</h1>
+      <table class="table table-white table-condensed">
+        <tr ng-repeat="message in messages.msg.received">
+          <td>{{message.msg_title}}</td>
+          <td>{{message.msg_body}}</td>
+        </tr>
+      </table>
+    </div>
 
-    <table class="table table-white table-condensed">
-      <tr ng-repeat="message in messages.receivedMessages">
-        <td>{{message.msg_title}}</td>
-        <td>{{message.msg_body}}</td>
-      </tr>
-    </table>
+    <div ng-show="messages.msg.sent.length">
+      <h1 class="white">Sent Messages</h1>
+
+      <table class="table table-white table-condensed">
+        <tr ng-repeat="message in messages.msg.sent">
+          <td>{{message.msg_title}}</td>
+          <td>{{message.msg_body}}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </section>

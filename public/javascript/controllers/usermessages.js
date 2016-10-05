@@ -31,11 +31,9 @@
         let user = results ? results.data : null
         console.log(user);
         if (user) {
-          $http.get(`/api/users/${user.id}/messages/received`)
+          $http.get(`/api/users/${user.id}/messages/`)
             .then( results => {
-              vm.receivedMessages = results ? results.data.receivedMessages : null;
-
-              console.log(vm.receivedMessages);
+              vm.msg = results ? results.data : null;
             })
         }
       })
