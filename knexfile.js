@@ -16,6 +16,13 @@ module.exports = {
     }
   },
 
+  circle: {
+    client:'postgresql',
+    connection: {
+      database: 'circle_test'
+    }
+  },
+
   staging: {
     client: 'postgresql',
     connection: {

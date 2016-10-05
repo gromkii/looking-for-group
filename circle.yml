@@ -3,3 +3,8 @@ machine:
     version: 6.3.1
   post:
     - npm install -g npm@3.10.3
+
+
+test:
+  override:
+    - npm circle

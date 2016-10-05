@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "NODE_ENV=testing mocha",
-    "start": "node server.js"
+    "start": "node server.js",
+    "circle": "NODE_ENV=circle mocha"
   },
   "keywords": [],
   "author": "",
