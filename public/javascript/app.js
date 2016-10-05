@@ -8,10 +8,12 @@
       'session',
       'newSession',
       'userSession',
+      'userMessages',
       'searchSessions',
       'logout',
       'Sessions',
-      'Users'
+      'Users',
+      'Messages'
      ]
    )
   }

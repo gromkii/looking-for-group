@@ -3,7 +3,8 @@
 var express = require('express'),
     router  = express.Router(),
     User = require('../models/user'),
-    Session = require('../models/session');
+    Session = require('../models/session'),
+    Message = require('../models/message');
 
 router.route('/')
   // Return a list of all users.
@@ -86,25 +87,25 @@ router.route('/:user_id/applications')
 
 router.route('/:user_id/messages/sent')
   .get((req, res) =>{
-    User
-      .where('id', req.params.user_id)
-      .fetch({withRelated: ['sentMessages']})
+    Message
+      .where('sender_id', req.params.user_id)
+      .fetchAll({withRelated:['receiver']}) // Rework this to hide certain columns.
       .then( results => {
-        let user = results ? results.toJSON() : null;
+        let sentMsg = results ? results.toJSON() : null
 
-        user ? res.json(user) : res.json({error:'No results found.'});
+        sentMsg ? res.json(sentMsg) : res.json({error:'No results found.'});
       })
   })
 
 router.route('/:user_id/messages/received')
   .get((req, res) => {
-    User
-      .where('id',req.params.user_id)
-      .fetch({withRelated: ['receivedMessages']})
+    Message
+      .where('receiver_id', req.params.user_id)
+      .fetchAll({withRelated:['sender']})
       .then( results => {
-        let user = results ? results.toJSON() : null;
+        let gotMsg = results ? results.toJSON() : null
 
-        user ? res.json(user) : res.json({error:'No results found.'});
+        gotMsg ? res.json(gotMsg) : res.json({error:'No results found.'})
       })
   })
 
