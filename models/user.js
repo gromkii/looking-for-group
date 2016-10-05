@@ -19,6 +19,12 @@ var User = bookshelf.Model.extend({
   },
   hosting(){
     return this.hasMany('Session', 'host_id');
+  },
+  sentMessages(){
+    return this.hasMany('Message', 'sender_id')
+  },
+  receivedMessages(){
+    return this.hasMany('Message', 'receiver_id')
   }
 });
 
