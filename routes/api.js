@@ -92,18 +92,4 @@ router.route('/application/:application_id/deny')
       })
   })
 
-router.route('/users/:user_id/applications')
-  .get((req, res) => {
-    User
-      .where('id', req.params.user_id)
-      .fetch({withRelated:['applications', 'applications.users']})
-      .then( results => {
-        if (results){
-          res.json(results.toJSON())
-        } else {
-          res.json({error:'No results found.'})
-        }
-      })
-  })
-
 module.exports = router;

@@ -70,5 +70,43 @@ router.route('/:user_id/sessions/host')
     }
   })
 
+router.route('/:user_id/applications')
+  .get((req, res) => {
+    User
+      .where('id', req.params.user_id)
+      .fetch({withRelated:['applications', 'applications.users']})
+      .then( results => {
+        if (results){
+          res.json(results.toJSON())
+        } else {
+          res.json({error:'No results found.'})
+        }
+      })
+  })
+
+router.route('/:user_id/messages/sent')
+  .get((req, res) =>{
+    User
+      .where('id', req.params.user_id)
+      .fetch({withRelated: ['sentMessages']})
+      .then( results => {
+        let user = results ? results.toJSON() : null;
+
+        user ? res.json(user) : res.json({error:'No results found.'});
+      })
+  })
+
+router.route('/:user_id/messages/received')
+  .get((req, res) => {
+    User
+      .where('id',req.params.user_id)
+      .fetch({withRelated: ['receivedMessages']})
+      .then( results => {
+        let user = results ? results.toJSON() : null;
+
+        user ? res.json(user) : res.json({error:'No results found.'});
+      })
+  })
+
 
 module.exports = router;
