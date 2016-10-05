@@ -50,4 +50,15 @@ router.route('/')
 
   })
 
+router.route('/:message_id')
+  .get((req, res) => {
+    Message
+      .where('id', req.params.message_id)
+      .fetch({withRelated:['sender', 'receiver']})
+      .then( results => {
+        let message = results ? results.toJSON() : null;
+
+        message ? res.json({message}) : res.json({error:'Message not found'});
+      })
+  })
 module.exports = router;
