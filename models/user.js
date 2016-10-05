@@ -4,6 +4,7 @@ require('./userRole')
 require('./userGroup')
 require('./userSession')
 require('./application')
+require('./message')
 
 var User = bookshelf.Model.extend({
   tableName:'users',

@@ -199,5 +199,29 @@ exports.seed = function(knex, Promise) {
             })
           ])
         })
+    }).then(() => {
+      return knex('messages').del()
+        .then(() => {
+          return Promise.all([
+            knex('messages').insert({
+              msg_title:'Hey',
+              msg_body:'Hows it going, buddy??',
+              sender_id:1,
+              receiver_id:2
+            }),
+            knex('messages').insert({
+              msg_title:'BUTHHH',
+              msg_body:'BLARG',
+              sender_id:3,
+              receiver_id:2
+            }),
+            knex('messages').insert({
+              msg_title:'re:Hey',
+              msg_body:'Its going.',
+              sender_id:2,
+              receiver_id:1
+            }),
+          ])
+        })
     });
 };

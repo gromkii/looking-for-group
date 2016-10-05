@@ -12,6 +12,7 @@ const express      = require('express'),
     api            = require('./routes/api.js'),
     authRoute      = require('./routes/auth.js'),
     usersRoute     = require('./routes/users.js'),
+    msgRoute       = require('./routes/messages.js'),
     sessionRoute   = require('./routes/sessions.js'),
     User           = require('./models/user.js');
 
@@ -73,6 +74,7 @@ passport.deserializeUser((id, done) => {
 app.use('/api', api)
   .use('/api/sessions', sessionRoute)
   .use('/api/users', usersRoute)
+  .use('/api/messages', msgRoute)
   .use('/auth', authRoute)
 
 app.get('/dashboard', (req, res, next) => {

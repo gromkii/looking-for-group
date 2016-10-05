@@ -1,8 +1,8 @@
 'use strict'
 
-const bookshelf = require('bookshelf');
+const bookshelf = require('../db/bookshelf');
 
-require('./models/user');
+require('./user');
 
 let Message = bookshelf.Model.extend({
   tableName:'messages',
@@ -14,3 +14,5 @@ let Message = bookshelf.Model.extend({
     return this.belongsTo('User', 'id');
   }
 })
+
+module.exports = bookshelf.model('Message', Message)
