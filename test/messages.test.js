@@ -55,4 +55,17 @@ describe('Message API Routes', () => {
           })
       })
   })
+
+  it('Should return a message by specified id', done => {
+    request
+      .get('/api/messages/1')
+      .expect(200)
+      .end((err, res) => {
+        let m = res.body.message;
+
+        expect(m).to.have.property('msg_title')
+        expect(m).to.have.property('msg_body')
+        done();
+      })
+  })
 })
