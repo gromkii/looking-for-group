@@ -30,4 +30,29 @@ describe('Message API Routes', () => {
         done();
       })
   })
+
+  it('Should post a new message', done => {
+    let m = {
+      msg_title:'Test',
+      msg_body:'This is a test',
+      user_id: 1,
+      receiver_id: 'pcage'
+    }
+
+    request
+      .post('/api/messages')
+      .expect(200)
+      .send(m)
+      .end((err, res) => {
+        request
+          .get('/api/messages')
+          .expect(200)
+          .end((err, res) => {
+            let messages = res.body;
+
+            expect(messages.length).to.eq(4);
+            done();
+          })
+      })
+  })
 })
