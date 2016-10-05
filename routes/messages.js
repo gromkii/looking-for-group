@@ -22,7 +22,7 @@ router.route('/')
     u = req.user ? req.user.id : m.user_id;
 
 
-    // The new message form will let you put in receipient by name,
+    // The new message form will let you put in recipient by name,
     // or possibly by id? Shouldn't really matter.
 
     // REFACTOR : findUserByUsername
@@ -46,7 +46,7 @@ router.route('/')
         }
       })
 
-    // Check to see if there's both a receipient and sender.
+    // Check to see if there's both a recipient and sender.
 
   })
 

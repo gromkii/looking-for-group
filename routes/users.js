@@ -95,8 +95,8 @@ router.route('/:user_id/messages')
 
         if (user.sentMessages) {
           res.json({
-            sent:user.sentMessages,
-            received:user.receivedMessages
+            sent:user.sentMessages ? user.sentMessages : null,
+            received:user.receivedMessages ? user.receivedMessages : null
           })
         } else {
           res.json({
