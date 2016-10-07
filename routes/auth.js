@@ -53,7 +53,7 @@ router.route('/user')
 
 router.route('/fail')
   .get((req, res) => {
-    res.send('You suck.');
+    res.json({error:'Login failed.'});
   })
 
 module.exports = router;

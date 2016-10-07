@@ -13,6 +13,12 @@
       </table>
     </div>
 
+    <div ng-hide="messages.msg.received.length">
+      <h2 class="white"><em>No new messages.</em></h2>
+    </div>
+
+
+  <!-- Break into tabs! -->
     <a data-toggle="modal" data-target="#newMessageModal" class="btn btn-success pull-right">New Message</a>
 
     <div ng-show="messages.msg.sent.length">
@@ -25,6 +31,10 @@
         </tr>
       </table>
     </div>
+  </div>
+
+  <div ng-hide="messages.msg.sent.length">
+    <h2 class="white"><em>No sent messages.</em></h2>
   </div>
 </section>
 
