@@ -49,7 +49,9 @@
 
       <div class="row">
         <div class="col-md-12">
-          <button data-toggle="modal" data-target="#applicationModal" class="btn purpback pull-right">Apply</button>
+          <button data-toggle="modal" data-target="#applicationModal" class="btn purpback pull-right" ng-show="session.currentUser.id">
+            Apply
+          </button>
         </div>
       </div>
     </div>
@@ -102,7 +104,9 @@
         <input type="hidden" name="session_id" ng-value="session.info.id">
 
         <fieldset class="form-group">
-          <button type="submit" class="btn btn-primary purpback pull-right">Submit Application</button>
+          <button type="submit" class="btn btn-primary purpback pull-right">
+            Submit Application
+          </button>
         </fieldset>
       </form>
     </div>
