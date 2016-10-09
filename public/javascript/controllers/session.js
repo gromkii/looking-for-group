@@ -31,6 +31,15 @@
         vm.info = session.data;
       })
 
+    Users
+      .getCurrentUser()
+      .then( results => {
+        let user = results ? results.data : null;
+
+        user ? vm.currentUser = user : vm.currentUser = null
+        console.log(vm.currentUser);
+      })
+
 
     function sessionSkill(skill_level){
       return `/assets/skill/${skill_level}.png`;

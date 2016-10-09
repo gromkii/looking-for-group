@@ -7,7 +7,8 @@
 
   function Users($http) {
     var returnObj = {
-      getAllUsers: getAllUsers
+      getAllUsers: getAllUsers,
+      getCurrentUser: getCurrentUser
     }
 
     function getAllUsers() {
@@ -16,6 +17,10 @@
 
     function getUsers(user_id){
       return $http.get(`/api/users/${user_id}`);
+    }
+
+    function getCurrentUser() {
+      return $http.get('/auth/user')
     }
 
     return returnObj;
