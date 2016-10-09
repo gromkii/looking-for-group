@@ -49,8 +49,12 @@
 
       <div class="row">
         <div class="col-md-12">
-          <button data-toggle="modal" data-target="#applicationModal" class="btn purpback pull-right" ng-show="session.currentUser.id">
+          <button data-toggle="modal" data-target="#applicationModal" class="btn purpback pull-right" ng-show="session.currentUser.id" ng-hide="session.isHost">
             Apply
+          </button>
+
+          <button class="btn btn-warning pull-right" ng-show="session.isHost">
+            Edit Session
           </button>
         </div>
       </div>
