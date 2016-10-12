@@ -9,7 +9,7 @@
 
       <tbody>
         <tr ng-repeat="session in userSession.mySessions">
-          <td><a ng-href="/dashboard/sessions/{{session.id}}">{{ session.session_name }}</a></td>
+          <td><a ng-href="/sessions/{{session.id}}">{{ session.session_name }}</a></td>
           <td>{{ session.game_name }}</td>
         </tr>
       </tbody>
@@ -38,7 +38,7 @@
 
         <tbody>
           <tr ng-repeat="session in userSession.hostedSessions track by $index">
-            <td><a ng-href="/dashboard/sessions/{{session.id}}">{{ session.session_name }}</a></td>
+            <td><a ng-href="/sessions/{{session.id}}">{{ session.session_name }}</a></td>
             <td>{{ session.game_name }}</td>
             <td>{{ session.num_players - session.users.length }}</td>
             <td>
@@ -82,5 +82,5 @@
 
 <section class="row" ng-hide="userSession.hostedSessions.length">
   <h4 class="white text-center"><em>You are not currently hosting any sessions..</em></h4>
-  <h5 class="white text-center"><em>Would you like to <a href="/dashboard/sessions/new">host a new session?</a></em></h5>
+  <h5 class="white text-center"><em>Would you like to <a href="/sessions/new">host a new session?</a></em></h5>
 </section>
