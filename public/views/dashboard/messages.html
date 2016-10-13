@@ -1,41 +1,52 @@
 <section class="row">
 
   <div class="col-md-8 col-md-offset-2">
+    <!-- Received / Sent -->
+    <button class="btn btn-primary" ng-click="messages.tab = 1">Received Messages</button>
+    <button class="btn btn-primary" ng-click="messages.tab = 2">Sent Messages</button>
+    <a data-toggle="modal" data-target="#newMessageModal" class="btn btn-success pull-right">New Message</a>
+  </div>
 
-    <div ng-show="messages.msg.received.length">
-      <h1 class="white">Received Messages</h1>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div ng-show="messages.tab == 1" ng-init="messages.tab = 1">
+        <div ng-show="messages.msg.received.length">
+          <h1 class="white">Received Messages</h1>
 
-      <table class="table table-white table-condensed">
-        <tr ng-repeat="message in messages.msg.received">
-          <td>{{message.msg_title}}</td>
-          <td>{{message.msg_body}}</td>
-        </tr>
-      </table>
+          <table class="table table-white table-condensed">
+            <tr ng-repeat="message in messages.msg.received">
+              <td>{{message.msg_title}}</td>
+              <td>{{message.msg_body}}</td>
+            </tr>
+          </table>
+        </div>
+
+        <div ng-hide="messages.msg.received.length">
+          <h2 class="white"><em>No new messages.</em></h2>
+        </div>
+      </div>
+
+      <div ng-show="messages.tab == 2">
+        <div ng-show="messages.msg.sent.length">
+          <h1 class="white">Sent Messages</h1>
+
+          <table class="table table-white table-condensed">
+            <tr ng-repeat="message in messages.msg.sent">
+              <td>{{message.msg_title}}</td>
+              <td>{{message.msg_body}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div ng-hide="messages.msg.sent.length">
+        <h2 class="white"><em>No sent messages.</em></h2>
+      </div>
     </div>
-
-    <div ng-hide="messages.msg.received.length">
-      <h2 class="white"><em>No new messages.</em></h2>
-    </div>
-
+  </div>
 
   <!-- Break into tabs! -->
-    <a data-toggle="modal" data-target="#newMessageModal" class="btn btn-success pull-right">New Message</a>
 
-    <div ng-show="messages.msg.sent.length">
-      <h1 class="white">Sent Messages</h1>
-
-      <table class="table table-white table-condensed">
-        <tr ng-repeat="message in messages.msg.sent">
-          <td>{{message.msg_title}}</td>
-          <td>{{message.msg_body}}</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-
-  <div ng-hide="messages.msg.sent.length">
-    <h2 class="white"><em>No sent messages.</em></h2>
-  </div>
 </section>
 
 <!-- New Message Modal -->
