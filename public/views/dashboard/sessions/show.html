@@ -21,17 +21,11 @@
 
       <div class="row">
         <div class="col-md-3">
-          <!-- Session Members -->
-          <table class="table table-condensed table-white">
-            <thead>
-              <th>Current Members</th>
-            </thead>
-            <tbody>
-              <tr ng-repeat="player in session.info.users">
-                <td>{{player.username}}</td>
-              </tr>
-            </tbody>
-          </table>
+          <!-- Session Members session.info.users -->
+          <h4>Current Members</h4>
+          <ul class="list-unstyled">
+            <li ng-repeat="member in session.info.users">{{member.username}}</li>
+          </ul>
         </div>
         <div class="col-md-7">
           <div class="session-desc">
