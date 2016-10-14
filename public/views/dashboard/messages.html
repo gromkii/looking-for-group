@@ -1,10 +1,13 @@
+
 <section class="row">
 
   <div class="col-md-8 col-md-offset-2">
     <!-- Received / Sent -->
-    <button class="btn btn-primary" ng-click="messages.tab = 1">Received Messages</button>
-    <button class="btn btn-primary" ng-click="messages.tab = 2">Sent Messages</button>
-    <a data-toggle="modal" data-target="#newMessageModal" class="btn btn-success pull-right">New Message</a>
+    <div class="btn-group" role="group">
+      <button class="btn btn-primary" ng-click="messages.tab = 1">Received Messages</button>
+      <button class="btn btn-primary" ng-click="messages.tab = 2">Sent Messages</button>
+      <button data-toggle="modal" data-target="#newMessageModal" class="btn btn-success pull-right">New Message</button>
+    </div>
   </div>
 
   <div class="row">
