@@ -186,3 +186,14 @@ body{
   border-radius:3px;
   padding:10px 30px;
 }
+
+
+/* Animations */
+.fade .ng-enter {
+  transition:.5s ease all;
+  opacity:0;
+
+  .ng-enter-active {
+    opacity:1;
+  }
+}

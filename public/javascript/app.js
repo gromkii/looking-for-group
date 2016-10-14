@@ -2,6 +2,7 @@
   angular
     .module('app', [
       'ngRoute',
+      'ngAnimate',
       'navbar',
       'index',
       'dashboard',
