@@ -3,8 +3,6 @@
     .module('navbar', [])
     .directive('navbar', navbar)
 
-
-
   function navbar(){
     var navbarObject = {
       restrict:'EA',

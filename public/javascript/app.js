@@ -4,6 +4,7 @@
       'ngRoute',
       'ngAnimate',
       'navbar',
+      'userProfile',
       'index',
       'dashboard',
       'session',
