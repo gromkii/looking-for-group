@@ -18,8 +18,6 @@
 
     function UserProfileController(){
       let vm = this;
-
-      vm.greeting = "Hello.";
     }
 
     return profileObj;
