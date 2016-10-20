@@ -1,0 +1,29 @@
+.options {
+  color:$text;
+  height:20vh;
+  background-color:$background;
+  border-radius: 3px;
+  transition: all 1s ease;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:10px;
+  overflow:hidden;
+  &:hover {
+    /* Rectangle 12: */
+    z-index:1;
+    transform: scale(1.05,1.05);
+    border-radius: 3px;
+    box-shadow:0 15px 15px rgba(15,15,15,.25);
+    background-color:$purp;
+  }
+
+  .overlay {
+    opacity:.25;
+    position:absolute;
+    transition:all .5s ease;
+    &:hover {
+      opacity:.50;
+    }
+  }
+}

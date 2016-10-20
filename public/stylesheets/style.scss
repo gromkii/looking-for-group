@@ -1,21 +1,15 @@
-@import 'https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Raleway:400,500i,700';
-$rale: 'Raleway', sans-serif;
-$play: 'Playfair Display', serif;
-$background:#3e3e3e;
-$text: #f9f9f9;
-$purp: #AD5BF5;
+// -- Core -- //
+@import 'core/variables';
+@import 'core/common';
 
-body{
+// -- Controllers -- //
+@import 'controllers/dashboard';
+
+// -- Directives -- //
+@import 'directives/navbar';
+
+body {
   background-color: #4a4a4a;
-
-  .navbar {
-    color:$text;
-    margin:0;
-    font-family: $rale;
-    .navbar-brand {
-      font-weight:bold;
-    }
-  }
 }
 
 .purpback {
@@ -92,35 +86,7 @@ body{
   }
 }
 
-.options {
-  color:$text;
-  height:20vh;
-  background-color:$background;
-  border-radius: 3px;
-  transition: all 1s ease;
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  margin-top:10px;
-  overflow:hidden;
-  &:hover {
-    /* Rectangle 12: */
-    z-index:1;
-    transform: scale(1.05,1.05);
-    border-radius: 3px;
-    box-shadow:0 15px 15px rgba(15,15,15,.25);
-    background-color:$purp;
-  }
 
-  .overlay {
-    opacity:.25;
-    position:absolute;
-    transition:all .5s ease;
-    &:hover {
-      opacity:.50;
-    }
-  }
-}
 
 .session-view {
   padding:0 250px;
