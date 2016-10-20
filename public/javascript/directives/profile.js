@@ -3,8 +3,6 @@
     .module('userProfile', [])
     .directive('userProfile', userProfile)
 
-
-
   function userProfile(){
     var profileObj = {
       restrict:'EA',
@@ -16,8 +14,11 @@
       }
     }
 
-    function UserProfileController(){
+    UserProfileController.$inject = ['$attrs']
+
+    function UserProfileController($attrs){
       let vm = this;
+      vm.greeting = "Hey"
     }
 
     return profileObj;
