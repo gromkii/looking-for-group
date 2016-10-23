@@ -1,4 +1,15 @@
 @import "https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Raleway:400,500i,700";
+body {
+  background-color: #4a4a4a; }
+
+.purpback {
+  background-color: #AD5BF5;
+  border: 0px; }
+
+.white {
+  color: #f9f9f9;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); }
+
 .options {
   color: #f9f9f9;
   height: 20vh;
@@ -30,17 +41,6 @@
   font-family: "Raleway", sans-serif; }
   .navbar .navbar-brand {
     font-weight: bold; }
-
-body {
-  background-color: #4a4a4a; }
-
-.purpback {
-  background-color: #AD5BF5;
-  border: 0px; }
-
-.white {
-  color: #f9f9f9;
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); }
 
 .jumbotron {
   padding-bottom: 75px;
