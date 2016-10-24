@@ -1,6 +1,7 @@
 // -- Core -- //
 @import 'core/variables';
 @import 'core/common';
+@import 'core/animations';
 
 // -- Controllers -- //
 @import 'controllers/dashboard';
@@ -12,20 +13,3 @@
 
 // -- Partials -- //
 @import 'partials/landing';
-
-
-
-
-
-
-
-/* Animations */
-
-.fade .ng-enter {
-  transition: 0.5s ease all;
-  opacity:0;
-
-  .ng-enter-active {
-    opacity:1;
-  }
-}

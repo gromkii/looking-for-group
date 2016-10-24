@@ -21,6 +21,12 @@ body {
   .table-white tbody tr:nth-child(even) {
     background-color: #333; }
 
+.fade .ng-enter {
+  transition: 0.5s ease all;
+  opacity: 0; }
+  .fade .ng-enter .ng-enter-active {
+    opacity: 1; }
+
 .options {
   color: #f9f9f9;
   height: 20vh;
@@ -149,12 +155,5 @@ body {
     .started button:hover {
       color: #f9f9f9;
       border-color: #f9f9f9; }
-
-/* Animations */
-.fade .ng-enter {
-  transition: 0.5s ease all;
-  opacity: 0; }
-  .fade .ng-enter .ng-enter-active {
-    opacity: 1; }
 
 /*# sourceMappingURL=style.css.map */
