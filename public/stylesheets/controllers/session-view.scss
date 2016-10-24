@@ -1,0 +1,61 @@
+.session-view {
+  padding:0 250px;
+  .header-img {
+    display:block;
+    width:100%;
+  }
+}
+
+.session-cover {
+  margin:50px 0 25px 0;
+  height:250px;
+  width:100%;
+  background-size: cover;
+  border-radius: 5px;
+}
+
+.session-header {
+  color:$text;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .skill-level{
+    margin-top:15px;
+    padding-top:10px;
+  }
+  .name {
+    height:100%;
+  }
+}
+
+
+
+.session-desc {
+  background-color:#3e3e3e;
+  border-radius:3px;
+  padding:5px 10px;
+
+  h3 {
+    margin:5px 0 10px 0;
+  }
+}
+
+
+.member-list {
+  background-color:#3e3e3e;
+  border-radius:3px;
+
+
+  li {
+
+    border-radius:5px;
+    padding:5px;
+
+    transition:0.5s ease all;
+
+    &:hover {
+      background-color:$purp;
+    }
+  }
+}

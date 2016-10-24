@@ -11,3 +11,23 @@ body {
   color: $text;
   text-shadow: 0px 2px 4px rgba(0,0,0,0.50);
 }
+
+.table-white {
+  background-color:#3e3e3e;
+  color:$text;
+  font-family: $rale;
+  padding:10px;
+  border-radius: 3px;
+
+  thead {
+    background-color: #333;
+  }
+
+  tbody {
+    tr {
+      &:nth-child(even) {
+        background-color:#333;
+      }
+    }
+  }
+}

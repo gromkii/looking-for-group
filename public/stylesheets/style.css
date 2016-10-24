@@ -10,6 +10,17 @@ body {
   color: #f9f9f9;
   text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); }
 
+.table-white {
+  background-color: #3e3e3e;
+  color: #f9f9f9;
+  font-family: "Raleway", sans-serif;
+  padding: 10px;
+  border-radius: 3px; }
+  .table-white thead {
+    background-color: #333; }
+  .table-white tbody tr:nth-child(even) {
+    background-color: #333; }
+
 .options {
   color: #f9f9f9;
   height: 20vh;
@@ -34,6 +45,53 @@ body {
     transition: all .5s ease; }
     .options .overlay:hover {
       opacity: .50; }
+
+.session-view {
+  padding: 0 250px; }
+  .session-view .header-img {
+    display: block;
+    width: 100%; }
+
+.session-cover {
+  margin: 50px 0 25px 0;
+  height: 250px;
+  width: 100%;
+  background-size: cover;
+  border-radius: 5px; }
+
+.session-header {
+  color: #f9f9f9;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+  .session-header .skill-level {
+    margin-top: 15px;
+    padding-top: 10px; }
+  .session-header .name {
+    height: 100%; }
+
+.session-desc {
+  background-color: #3e3e3e;
+  border-radius: 3px;
+  padding: 5px 10px; }
+  .session-desc h3 {
+    margin: 5px 0 10px 0; }
+
+.member-list {
+  background-color: #3e3e3e;
+  border-radius: 3px; }
+  .member-list li {
+    border-radius: 5px;
+    padding: 5px;
+    transition: 0.5s ease all; }
+    .member-list li:hover {
+      background-color: #AD5BF5; }
+
+.new {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 3px;
+  margin: 20px; }
 
 .navbar {
   color: #f9f9f9;
@@ -91,64 +149,6 @@ body {
     .started button:hover {
       color: #f9f9f9;
       border-color: #f9f9f9; }
-
-.session-view {
-  padding: 0 250px; }
-  .session-view .header-img {
-    display: block;
-    width: 100%; }
-
-.new {
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 3px;
-  margin: 20px; }
-
-.session-cover {
-  margin: 50px 0 25px 0;
-  height: 250px;
-  width: 100%;
-  background-size: cover;
-  border-radius: 5px; }
-
-.session-header {
-  color: #f9f9f9;
-  display: flex;
-  flex-direction: row;
-  align-items: center; }
-  .session-header .skill-level {
-    margin-top: 15px;
-    padding-top: 10px; }
-  .session-header .name {
-    height: 100%; }
-
-.table-white {
-  background-color: #3e3e3e;
-  color: #f9f9f9;
-  font-family: "Raleway", sans-serif;
-  padding: 10px;
-  border-radius: 3px; }
-  .table-white thead {
-    background-color: #333; }
-  .table-white tbody tr:nth-child(even) {
-    background-color: #333; }
-
-.session-desc {
-  background-color: #3e3e3e;
-  border-radius: 3px;
-  padding: 5px 10px; }
-  .session-desc h3 {
-    margin: 5px 0 10px 0; }
-
-.member-list {
-  background-color: #3e3e3e;
-  border-radius: 3px; }
-  .member-list li {
-    border-radius: 5px;
-    padding: 5px;
-    transition: 0.5s ease all; }
-    .member-list li:hover {
-      background-color: #AD5BF5; }
 
 /* Animations */
 .fade .ng-enter {
