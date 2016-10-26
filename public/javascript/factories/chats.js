@@ -11,14 +11,7 @@
     }
 
     function getChat(session_id){
-      $http.get(`/api/sessions/${session_id}/chat`)
-        .then( results => {
-          if (results) => {
-            return results;
-          } else {
-            return {error: "getChat error."}
-          }
-        });
+      return $http.get(`/api/sessions/${session_id}/chat`)
     }
 
     return Chat;

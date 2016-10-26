@@ -1,12 +1,11 @@
 (function(){
   angular
-    .module('groupChat', [])
+    .module('groupChat', ['Chats'])
     .config(routeConfig)
     .controller('GroupChat', GroupChat)
 
   routeConfig.$inject = ['$routeProvider', '$locationProvider'];
-
-
+  GroupChat.$inject = ['$routeParams', 'Chats'];
 
   function routeConfig($routeProvider, $locationProvider){
     $routeProvider
@@ -22,9 +21,14 @@
     });
   }
 
-  function GroupChat(){
-    var vm = this;
+  function GroupChat($routeParams, Chats){
+    let vm = this,
+        session = $routeParams.session_id;
 
-    
+    Chats.getChat(session).then( results => {
+      if (results.data) {
+        vm.posts = results.data;
+      }
+    });
   }
 })();

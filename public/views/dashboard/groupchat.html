@@ -1,3 +1,4 @@
 <section>
-  <h1 class="white">Chat</h1>
+  <h1 ng-repeat="chat in chat.posts" class="white">{{chat.post_body}}</h1>
+  <h1 ng-hide="chat.posts.length" class="white">No chat log found.</h1>
 </section>
