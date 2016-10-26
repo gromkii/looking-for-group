@@ -1,10 +1,15 @@
 (function(){
   angular
     .module('app', [
+      // Core
       'ngRoute',
       'ngAnimate',
+
+      // Directives
       'navbar',
       'userProfile',
+
+      // Controllers
       'index',
       'dashboard',
       'session',
@@ -14,9 +19,12 @@
       'searchSessions',
       'groupChat',
       'logout',
+
+      // Factories
       'Sessions',
       'Users',
-      'Messages'
+      'Messages',
+      'Chats'
      ]
    )
   }
