@@ -60,10 +60,10 @@ router.route('/:session_id/chat')
       .fetch({withRelated:['chats']})
       .then( results => {
         if (results) {
-          let chat = results.toJSON();
-          console.log(chat);
+          let session = results.toJSON();
+          console.log(session.chats);
 
-          res.json(chat);
+          res.json(session.chats);
         } else {
           res.json({error: 'Session/Chat not found.'});
         }

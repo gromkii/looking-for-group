@@ -17,7 +17,7 @@ var Session = bookshelf.Model.extend({
     return this.belongsToMany('Application', 'approve_applications', 'session_id', 'app_id');
   },
   chats(){
-    return this.hasOne('GroupChat', 'session_id');
+    return this.hasMany('GroupChat', 'session_id');
   }
 });
 
