@@ -65,24 +65,6 @@ exports.seed = function(knex, Promise) {
           ]);
         });
     }).then(() => {
-      return knex('user_groups').del()
-        .then(() => {
-          return Promise.all([
-            knex('user_groups').insert({
-              user_id:1,
-              role_id:1
-            }),
-            knex('user_groups').insert({
-              user_id:2,
-              role_id:2
-            }),
-            knex('user_groups').insert({
-              user_id:3,
-              role_id:2
-            })
-          ]);
-        });
-    }).then(() => {
       return knex('sessions').del()
         .then(()=> {
           return Promise.all([
@@ -223,5 +205,21 @@ exports.seed = function(knex, Promise) {
             }),
           ])
         })
-    });
+    }).then(() => {
+      return knex('group_chat').del()
+        .then(() => {
+          return Promise.all([
+            knex('group_chat').insert({
+              session_id:1,
+              poster_id:2,
+              post_body:'What the fuck is good. This chat sucks.'
+            }),
+            knex('group_chat').insert({
+              session_id:1,
+              poster_id:1,
+              post_body:'You know what? Fuck you. YOU suck.'
+            })
+          ])
+        })
+    })
 };
