@@ -1,4 +1,4 @@
-const bookshelf = require('bookshelf');
+const bookshelf = require('../db/bookshelf');
 
 require('./user');
 require('./session');

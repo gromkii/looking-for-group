@@ -5,6 +5,7 @@ require('./userGroup')
 require('./userSession')
 require('./application')
 require('./message')
+require('./groupChat')
 
 var User = bookshelf.Model.extend({
   tableName:'users',
@@ -26,6 +27,9 @@ var User = bookshelf.Model.extend({
   },
   receivedMessages(){
     return this.hasMany('Message', 'receiver_id')
+  },
+  chats(){
+    return this.hasMany('GroupChat', 'user_id')
   }
 });
 

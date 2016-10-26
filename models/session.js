@@ -3,6 +3,7 @@ var bookshelf = require('../db/bookshelf');
 require('./user')
 require('./userSession')
 require('./application')
+require('./groupChat')
 
 var Session = bookshelf.Model.extend({
   tableName:'sessions',
@@ -14,6 +15,9 @@ var Session = bookshelf.Model.extend({
   },
   applications(){
     return this.belongsToMany('Application', 'approve_applications', 'session_id', 'app_id');
+  },
+  chats(){
+    return this.hasOne('GroupChat', 'session_id');
   }
 });
 

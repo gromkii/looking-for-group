@@ -53,5 +53,21 @@ router.route('/:session_id')
       })
   })
 
+router.route('/:session_id/chat')
+  .get((req, res) => {
+    Session
+      .where('id', req.params.session_id)
+      .fetch({withRelated:['chats']})
+      .then( results => {
+        if (results) {
+          let chat = results.toJSON();
+          console.log(chat);
+
+          res.json(chat);
+        } else {
+          res.json({error: 'Session/Chat not found.'});
+        }
+      })
+  })
 
 module.exports = router;
