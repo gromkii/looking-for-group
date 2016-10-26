@@ -12,6 +12,7 @@
       'userSession',
       'userMessages',
       'searchSessions',
+      'groupChat',
       'logout',
       'Sessions',
       'Users',
