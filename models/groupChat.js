@@ -3,7 +3,7 @@ const bookshelf = require('../db/bookshelf');
 require('./user');
 require('./session');
 
-let GroupChat = bookshelf.Model.extend({
+var GroupChat = bookshelf.Model.extend({
   tableName:'group_chat',
   hasTimestamps:true,
   users(){
