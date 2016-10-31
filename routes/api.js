@@ -9,6 +9,15 @@ var express = require('express'),
 
 
 /**
+  * General test route.
+ **/
+
+router.route('/test')
+  .get((req, res) => {
+    res.json({message:'You did it.'});
+  })
+
+/**
   * This tests the mailer.
  **/
 router.route('/mailer')
@@ -16,11 +25,11 @@ router.route('/mailer')
     let transporter = nodemailer.createTransport();
 
     var mailOptions = {
-      from: '"Dax" <foo@blurdybloop.com>', // sender address
+      from: '"Dax" <noreply@lookingforgroup.io>', // sender address
       to: 'limeside@gmail.com', // list of receivers
-      subject: 'Hello ✔', // Subject line
-      text: 'Hello world 🐴', // plaintext body
-      html: '<b>Hello world 🐴</b>' // html body
+      subject: 'Testing! 🤔', // Subject line
+      text: 'What up, fucker.', // plaintext body
+      html: '<a href="localhost:3000//api/test">Click this.</a>' // html body
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
