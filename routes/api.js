@@ -4,9 +4,32 @@ var express = require('express'),
   knex = require('../db/knex'),
   User = require('../models/user'),
   Session = require('../models/session'),
-  Application = require('../models/application');
+  Application = require('../models/application'),
+  nodemailer = require('nodemailer');
 
 
+/**
+  * This tests the mailer.
+ **/
+router.route('/mailer')
+  .get((req, res) => {
+    let transporter = nodemailer.createTransport();
+
+    var mailOptions = {
+      from: '"Dax" <foo@blurdybloop.com>', // sender address
+      to: 'limeside@gmail.com', // list of receivers
+      subject: 'Hello ✔', // Subject line
+      text: 'Hello world 🐴', // plaintext body
+      html: '<b>Hello world 🐴</b>' // html body
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if(error){
+        return console.log(error);
+      }
+      console.log('Message sent: ' + info.response);
+    });
+  });
 
 router.route('/application')
   .get((req, res) =>{
