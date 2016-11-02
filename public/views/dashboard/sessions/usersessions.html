@@ -1,96 +1,95 @@
+<div class="btn-group">
+  <button class="btn btn-primary" ng-click="userSession.tabs = 1">Current Sessions</button>
+  <button class="btn btn-primary" ng-click="userSession.tabs = 2">Hosted Sessions</button>
+</div>
 
-  <div class="btn-group">
-    <button class="btn btn-primary" ng-click="userSession.tabs = 1">Current Sessions</button>
-    <button class="btn btn-primary" ng-click="userSession.tabs = 2">Hosted Sessions</button>
-  </div>
+<div ng-show="userSession.tabs == 1" ng-init="userSession.tabs = 1">
+  <section class="row" ng-show="userSession.mySessions.length">
+    <h1 class="white text-center">My Current Sessions</h1>
+    <div class="col-md-10 col-md-offset-1">
+      <table class="table table-condensed table-white">
+        <thead>
+          <th>Session Name</th>
+          <th>Game Name</th>
+        </thead>
 
-  <div ng-show="userSession.tabs == 1" ng-init="userSession.tabs = 1">
-    <section class="row" ng-show="userSession.mySessions.length">
-      <h1 class="white text-center">My Current Sessions</h1>
-      <div class="col-md-10 col-md-offset-1">
+        <tbody>
+          <tr ng-repeat="session in userSession.mySessions">
+            <td><a ng-href="/sessions/{{session.id}}">{{ session.session_name }}</a></td>
+            <td>{{ session.game_name }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </section>
+
+  <section class="row" ng-hide="userSession.mySessions.length">
+    <h4 class="white text-center"><em>You are not currently a member of any sessions..</em></h4>
+    <h5 class="white text-center"><em>Would you like to <a href="/dashboard/sessions/search">search for a session?</a></em></h5>
+  </section>
+</div>
+
+<div ng-show="userSession.tabs == 2">
+  <section class="row" ng-show="userSession.hostedSessions.length">
+    <div class="col-lg-10 col-lg-offset-1 col-md-12">
+      <h2 class="white text-center">Hosted Sessions</h2>
+        <!-- Where host_id = user_id -->
         <table class="table table-condensed table-white">
           <thead>
             <th>Session Name</th>
             <th>Game Name</th>
+            <th>Open Seats</th>
+            <th></th>
+            <!-- Options -->
           </thead>
 
           <tbody>
-            <tr ng-repeat="session in userSession.mySessions">
+            <tr ng-repeat="session in userSession.hostedSessions track by $index">
               <td><a ng-href="/sessions/{{session.id}}">{{ session.session_name }}</a></td>
               <td>{{ session.game_name }}</td>
+              <td>{{ session.num_players - session.users.length }}</td>
+              <td>
+                <button class="btn btn-small btn-danger" ng-click="userSession.deleteSession(session.id, $index)">
+                  Delete
+                </button>
             </tr>
           </tbody>
         </table>
 
-      </div>
-    </section>
-
-    <section class="row" ng-hide="userSession.mySessions.length">
-      <h4 class="white text-center"><em>You are not currently a member of any sessions..</em></h4>
-      <h5 class="white text-center"><em>Would you like to <a href="/dashboard/sessions/search">search for a session?</a></em></h5>
-    </section>
-  </div>
-
-  <div ng-show="userSession.tabs == 2">
-    <section class="row" ng-show="userSession.hostedSessions.length">
-      <div class="col-lg-10 col-lg-offset-1 col-md-12">
-        <h2 class="white text-center">Hosted Sessions</h2>
-          <!-- Where host_id = user_id -->
-          <table class="table table-condensed table-white">
+        <h2 class="text-center white" ng-hide="userSessions.hostedSessions.length">Pending Applications</h2>
+          <table ng-repeat="session in userSession.hostedSessions" class="table table-condensed table-white" ng-hide="userSessions.hostedSessions.length">
             <thead>
-              <th>Session Name</th>
-              <th>Game Name</th>
-              <th>Open Seats</th>
-              <th></th>
-              <!-- Options -->
+              <th>Applicant</th>
+              <th>Played Before?</th>
+              <th>Years Played</th>
+              <th>Used Platform?</th>
+              <th>Experience Level</th>
+              <th>Application</th>
+              <th>Approve/Deny</th>
             </thead>
 
             <tbody>
-              <tr ng-repeat="session in userSession.hostedSessions track by $index">
-                <td><a ng-href="/sessions/{{session.id}}">{{ session.session_name }}</a></td>
-                <td>{{ session.game_name }}</td>
-                <td>{{ session.num_players - session.users.length }}</td>
+              <tr ng-repeat="application in session.applications track by $index" ng-hide="application.approved">
+                <td>{{application.users[0].username}}</td>
+                <td>{{application.has_played ? "Yes" : "No"}}</td>
+                <td>{{application.years_played}}</td>
+                <td>{{application.used_platform? "Yes" : "No"}}</td>
+                <td><img ng-src="/assets/skill/{{application.exp_level}}.png"></td>
+                <td>{{application.application}}</td>
                 <td>
-                  <button class="btn btn-small btn-danger" ng-click="userSession.deleteSession(session.id, $index)">
-                    Delete
-                  </button>
+                  <!-- Make a ngClick method in the userSessions controller. -->
+                  <button class="btn btn-success" ng-click="userSession.approveApplication(session, application.id, $index)">Approve</button>
+                  <button class="btn btn-warning" ng-click="userSession.denyApplication(session, application.id, $index)">Deny</button>
+                </td>
               </tr>
             </tbody>
           </table>
+    </div>
+  </section>
 
-          <h2 class="text-center white" ng-hide="userSessions.hostedSessions.length">Pending Applications</h2>
-            <table ng-repeat="session in userSession.hostedSessions" class="table table-condensed table-white" ng-hide="userSessions.hostedSessions.length">
-              <thead>
-                <th>Applicant</th>
-                <th>Played Before?</th>
-                <th>Years Played</th>
-                <th>Used Platform?</th>
-                <th>Experience Level</th>
-                <th>Application</th>
-                <th>Approve/Deny</th>
-              </thead>
-
-              <tbody>
-                <tr ng-repeat="application in session.applications track by $index" ng-hide="application.approved">
-                  <td>{{application.users[0].username}}</td>
-                  <td>{{application.has_played ? "Yes" : "No"}}</td>
-                  <td>{{application.years_played}}</td>
-                  <td>{{application.used_platform? "Yes" : "No"}}</td>
-                  <td><img ng-src="/assets/skill/{{application.exp_level}}.png"></td>
-                  <td>{{application.application}}</td>
-                  <td>
-                    <!-- Make a ngClick method in the userSessions controller. -->
-                    <button class="btn btn-success" ng-click="userSession.approveApplication(session, application.id, $index)">Approve</button>
-                    <button class="btn btn-warning" ng-click="userSession.denyApplication(session, application.id, $index)">Deny</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-      </div>
-    </section>
-
-    <section class="row" ng-hide="userSession.hostedSessions.length">
-      <h4 class="white text-center"><em>You are not currently hosting any sessions..</em></h4>
-      <h5 class="white text-center"><em>Would you like to <a href="/sessions/new">host a new session?</a></em></h5>
-    </section>
-  </div>
+  <section class="row" ng-hide="userSession.hostedSessions.length">
+    <h4 class="white text-center"><em>You are not currently hosting any sessions..</em></h4>
+    <h5 class="white text-center"><em>Would you like to <a href="/sessions/new">host a new session?</a></em></h5>
+  </section>
+</div>
