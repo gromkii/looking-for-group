@@ -27,5 +27,25 @@
       'Chats'
      ]
    )
+  .config(stateConfig)
+
+  stateConfig.$inject = ["$stateProvider", "$urlRouterProvider"];
+
+  function stateConfig($stateProvider, $urlRouterProvider) {
+    $stateProvider
+      .state('index', {
+        url:'/',
+        controller:'IndexController',
+        controllerAs:'index',
+        templateUrl:'views/index/index.html'
+      })
+      
+      .state('dashboard', {
+        url:'/dashboard',
+        controller:'DashboardController',
+        controllerAs:'dashboard',
+        templateUrl:'views/dashboard/index.html'
+      })
+  }
 
 })();

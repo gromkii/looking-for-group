@@ -51,13 +51,13 @@
       </navbar>
     </header>
 
-    <main ng-view>
-      <!-- Main View -->
+    <main ui-view>
+      <!-- Main statebased view -->
     </main>
 
+    <main ng-view>
+      <!-- Everything that hasn't been switched over to ui-router goes here -->
+    </main>
 
-    <section ui-view>
-
-    </section>
   </body>
 </html>
