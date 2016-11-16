@@ -30,7 +30,7 @@ router.route('/')
     }).save()
       .then(post => {
         var id = post.toJSON().id;
-        res.redirect(`/dashboard/sessions/${id}`);
+        res.redirect(`/sessions/${id}`);
       })
   });
 
