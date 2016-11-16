@@ -22,8 +22,8 @@ require('dotenv').config(); // Allows local env elements.
 app.use(bodyParser.json())
   .use(bodyParser.urlencoded({extended:false}))
   .use(methodOverride('_method'))
+  .use('/lib', express.static(__dirname + '/node_modules'))
   .use(express.static('public'))
-  .use('/lib', express.static(__dirname + '/node_modules'))  
   .use('/bower_components', express.static(__dirname + '/bower_components'))
   .use(cookieParser())
   .use(session({

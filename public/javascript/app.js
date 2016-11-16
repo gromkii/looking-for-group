@@ -3,12 +3,11 @@
     .module('app', [
       // Core
       'ngRoute',
-      'ngAnimate',
+      'ui.router',
 
       // Directives
       'navbar',
       'userProfile',
-      'ui.router',
 
       // Controllers
       'index',
@@ -28,5 +27,5 @@
       'Chats'
      ]
    )
-         
+
 })();
