@@ -23,6 +23,7 @@ app.use(bodyParser.json())
   .use(bodyParser.urlencoded({extended:false}))
   .use(methodOverride('_method'))
   .use(express.static('public'))
+  .use('/lib', express.static(__dirname + '/node_modules'))  
   .use('/bower_components', express.static(__dirname + '/bower_components'))
   .use(cookieParser())
   .use(session({

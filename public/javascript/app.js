@@ -8,6 +8,7 @@
       // Directives
       'navbar',
       'userProfile',
+      'ui.router',
 
       // Controllers
       'index',
@@ -27,5 +28,5 @@
       'Chats'
      ]
    )
-       
+         
 })();
