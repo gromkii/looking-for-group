@@ -1,3 +1,27 @@
-<section>
-  <h1>{{profile.user}}</h1>
+<section id="userModal" class="modal fade" tabindex="-1" role="dialog" aria-labeledby="userModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="userModalLabel">User Profile</h4>
+      </div>
+
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <center>
+              <img ng-src="{{ user.avatar_url }}" class="img-circle">
+            </center>
+          </div>
+
+          <div class="col-md-6">
+            <blockquote>
+              <p>{{ user.username }}</p>
+              <small><cite title="Source Title">{{ user.location }} <i class="icon-map-marker"></i></cite></small>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
