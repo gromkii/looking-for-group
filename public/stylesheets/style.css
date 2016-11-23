@@ -99,6 +99,11 @@ body {
   border-radius: 3px;
   margin: 20px; }
 
+.nav-pills > li > a {
+  color: #f9f9f9; }
+  .nav-pills > li > a:hover {
+    background-color: #AD5BF5; }
+
 .main {
   padding: 15px; }
 

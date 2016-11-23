@@ -1,3 +1,11 @@
+.nav-pills > li > a {
+  color: $text;
+  &:hover {
+    background-color: $purp;
+  }
+}
+
+
 .main {
   padding:15px;
 }

@@ -1,11 +1,13 @@
 <section class="container main">
 
-  <div role="navigation">
-    <div class="btn-group">
-      <button class="btn purpback" ng-click="userSession.tabs = 1">Current Sessions</button>
-      <button class="btn purpback" ng-click="userSession.tabs = 2">Hosted Sessions</button>
-    </div`>
-  </div>
+  <div class="row">
+     <nav class="nav navbar-nav">
+        <ul class="nav nav-pills">
+           <li role="presentation"><a ng-click="userSession.tabs = 1">Current Sessions</a></li>
+           <li role="presentation"><a ng-click="userSession.tabs = 2">Hosted Sessions</a></li>
+       </ul>
+     </nav>
+   </div>
 
   <div ng-show="userSession.tabs == 1" ng-init="userSession.tabs = 1">
     <section class="row" ng-show="userSession.mySessions.length">
@@ -62,7 +64,7 @@
           </table>
 
           <h2 class="text-center white" ng-hide="userSessions.hostedSessions.length">Pending Applications</h2>
-            <table ng-repeat="session in userSession.hostedSessions" class="table table-condensed table-white" ng-hide="userSessions.hostedSessions.length">
+            <table ng-repeat="session in userSession.hostedSessions" class="table table-condensed table-white" ng-show="userSessions.hostedSessions.length">
               <thead>
                 <th>Applicant</th>
                 <th>Played Before?</th>
@@ -88,6 +90,7 @@
                   </td>
                 </tr>
               </tbody>
+
             </table>
       </div>
     </section>
