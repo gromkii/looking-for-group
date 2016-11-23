@@ -1,26 +1,10 @@
 (function(){
   angular
     .module('userSession', ['Sessions'])
-    .config(routeConfig)
     .controller('UserSessionController', UserSessionController)
 
-  routeConfig.$inject = ['$routeProvider', '$locationProvider']
   UserSessionController.$inject = ['$http', 'Sessions']
 
-
-  function routeConfig($routeProvider, $locationProvider) {
-    $routeProvider
-      .when('/dashboard/users/sessions', {
-        templateUrl:'/views/dashboard/sessions/usersessions.html',
-        controller:'UserSessionController',
-        controllerAs:'userSession'
-      });
-
-    $locationProvider.html5Mode({
-      enabled:true,
-      requireBase:false
-    });
-  }
 
   function UserSessionController($http, Sessions){
     var vm = this;
