@@ -99,6 +99,9 @@ body {
   border-radius: 3px;
   margin: 20px; }
 
+.main {
+  padding: 15px; }
+
 .navbar {
   color: #f9f9f9;
   margin: 0;

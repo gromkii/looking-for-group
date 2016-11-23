@@ -80,6 +80,5 @@
 
       session.applications.splice(index,1);
     }
-
   }
 })()
