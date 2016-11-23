@@ -3,15 +3,15 @@
     .module('session', ['Sessions', 'Users'])
     .controller('SessionController', SessionController);
 
-  SessionController.$inject = ['Sessions', '$routeParams', 'Users'];
+  SessionController.$inject = ['Sessions', '$stateParams', 'Users'];
 
-  function SessionController(Sessions, $routeParams, Users){
+  function SessionController(Sessions, $stateParams, Users){
     var vm = this;
     vm.getUser = Users.getUser;
     vm.sessionSkill = sessionSkill;
     vm.isHost = false;
     Sessions
-      .getSession($routeParams.session_id)
+      .getSession($stateParams.session_id)
       .then( session => {
         vm.info = session.data;
       }).then( () => {

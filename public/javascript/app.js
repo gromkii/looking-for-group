@@ -51,7 +51,7 @@
         })
 
         .state('sessions', {
-          url:'/sessions/:session_id',
+          url:'/sessions/{session_id}',
           templateUrl:'/views/dashboard/sessions/show.html',
           controller:'SessionController',
           controllerAs:'session'
@@ -96,6 +96,11 @@
           url:'/auth/logout',
           controller:'LogoutController'
         })
+
+      $locationProvider.html5Mode({
+        enabled:true,
+        requireBase:false
+      })
     }
 
 })();
